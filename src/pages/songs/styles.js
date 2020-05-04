@@ -5,11 +5,10 @@ export const Container = styled.div`
   margin-top: 60px;
   display: flex;
   flex-direction: row;
-  
 
-  img{
+  img {
     width: auto;
-    height: auto; 
+    height: auto;
   }
 
   button {
@@ -20,33 +19,50 @@ export const Container = styled.div`
     font-size: 20px;
     border: transparent;
     border-radius: 16px;
-    color: white;     
+    color: white;
   }
 
-  h1{
-    font-size:20px
+  h1 {
+    font-size: 20px;
   }
-
 `;
 
 export const SongList = styled.div`
-      width: 100%;
-      text-align: left;
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column
+  width: 100%;
+  text-align: left;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  div {
+    margin-left: 60px;
+  }
 
-      div{
-        margin-left:60px
-      }
+  h1 {
+    font-size: 16px;
+    font-weight: 200;
+  }
 
-      h1{
-        font-size: 16px;
-        font-weight: 200;
-      }
+  h2 {
+    margin-top: 5px;
+    font-size: 12px;
+  }
+`;
 
-      h2{
-        margin-top:5px;
-        font-size:12px
-      }
+export const Playlist = styled.div`
+  li {
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
+
+  span {
+    font-size: 12px;
+    color: black;
+    font-weight: bold;
+    padding: 10px;
+  }
 `;

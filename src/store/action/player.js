@@ -1,68 +1,65 @@
-import { fork } from 'redux-saga/effects';
+import { fork } from "redux-saga/effects";
 // import apiSpotify from '../../services/apiSpotify'
 
-  export const updateVolume = (volume) => {
-    return {
-        type: 'UPDATE_VOLUME',
-        volume
-      };
+export const updateVolume = (volume) => {
+  return {
+    type: "UPDATE_VOLUME",
+    volume,
   };
+};
 
-  export const getSongChoosen = (id, index) => {
-    return {
-      type: 'GET_SONG_CHOOSEN',
-      id,
-      index
-    }
+export const getSongChoosen = (index) => {
+  return {
+    type: "GET_SONG_CHOOSEN",
+    index,
   };
+};
 
-  export const changeSource = (src) => {
-    return {
-      type: 'GET_SOURCE',
-      src
-    }
+export const resetTime = () => {
+  return {
+    type: "RESET_TIME",
   };
+};
 
-  export const playSong = (song) => {
-    return {
-      type: 'PLAY_SONG',
-      song
-    };
+export const changeSource = (src) => {
+  return {
+    type: "GET_SOURCE",
+    src,
   };
+};
 
-  export const increaseSongTime = (time) => {
-    return {
-      type: 'INCREASE_SONG_TIME',
-      time
-    };
+export const playSong = (song) => {
+  return {
+    type: "PLAY_SONG",
+    song,
   };
-  
-  export const stopSong = () => {
-    return {
-      type: 'STOP_SONG'
-    };
+};
+
+export const increaseSongTime = (time) => {
+  return {
+    type: "INCREASE_SONG_TIME",
+    time,
   };
-  
-  export const pauseSong = () => {
-    return {
-      type: 'PAUSE_SONG'
-    };
+};
+
+export const stopSong = () => {
+  return {
+    type: "STOP_SONG",
   };
-  
-  export const resumeSong = () => {
-    return {
-      type: 'RESUME_SONG'
-    };
+};
+
+export const pauseSong = () => {
+  return {
+    type: "PAUSE_SONG",
   };
+};
 
+export const resumeSong = () => {
+  return {
+    type: "RESUME_SONG",
+  };
+};
 
-  function* Saga() {
-        
-  }
+function* Saga() {}
 
-  export const playerSaga = [
-      fork(Saga)
-  ]
-
-
-
+export const playerSaga = [fork(Saga)];
