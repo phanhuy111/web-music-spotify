@@ -26,9 +26,9 @@ export default {
     return api.post(`/users/${id}/playlists`, { ...playlist }, { headers });
   },
   addTrack(accessToken, uri, id) {
-    console.log(accessToken);
+    // console.log(accessToken);
     headers.Authorization = `Bearer ${accessToken}`;
-    return api.post(`/playlists/${id}/tracks?uris=${uri}`, { headers });
+    return api.post(`/playlists/${id}/tracks?uris=${uri}`, {}, { headers });
   },
   // album
   getAlbums(accessToken) {
