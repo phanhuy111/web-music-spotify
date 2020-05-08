@@ -8,6 +8,7 @@
     "enzyme-adapter-react-16": "^1.15.2",
     "http-proxy-middleware": "^1.0.3",
     "jest-enzyme": "^7.1.2",
+    "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "query-string": "^6.11.1",
     "rc-slider": "^8.6.7",

@@ -22,7 +22,8 @@ export const SongList = styled.div`
   text-align: left;
   margin-top: 20px;
   display: flex;
-  flex-direction: column div {
+  flex-direction: column;
+  div {
     margin-left: 60px;
   }
 

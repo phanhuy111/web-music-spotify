@@ -2,32 +2,8 @@ import React, { Component } from "react";
 
 import { connect } from "react-redux";
 import { getGener, getFeature, getRelease } from "../../store/action/browse";
-// import moduleName from '../../store'
 
 import { Container, ContainerAuth, Title } from "./styles";
-
-const browse = [
-  {
-    id: 1,
-    img: "https://i.scdn.co/image/ab67706f00000002aa93fe4e8c2d24fc62556cba",
-  },
-  {
-    id: 2,
-    img: "https://i.scdn.co/image/ab67706f00000002aa93fe4e8c2d24fc62556cba",
-  },
-  {
-    id: 3,
-    img: "https://i.scdn.co/image/ab67706f00000002aa93fe4e8c2d24fc62556cba",
-  },
-  {
-    id: 4,
-    img: "https://i.scdn.co/image/ab67706f00000002aa93fe4e8c2d24fc62556cba",
-  },
-  {
-    id: 5,
-    img: "https://i.scdn.co/image/ab67706f00000002aa93fe4e8c2d24fc62556cba",
-  },
-];
 
 class Home extends Component {
   constructor(props) {
@@ -39,15 +15,13 @@ class Home extends Component {
 
   componentDidUpdate = async (prevProps) => {
     if (prevProps.token !== this.props.token) {
-      // await this.props.dispatch(getGener(this.props.token));
-      // await this.props.dispatch(getFeature(this.props.token));
-      // await this.props.dispatch(getRelease(this.props.token));
+      await this.props.dispatch(getGener(this.props.token));
+      await this.props.dispatch(getFeature(this.props.token));
+      await this.props.dispatch(getRelease(this.props.token));
     }
   };
 
-  componentDidMount() {
-    // console.log(this.state.token)
-  }
+  componentDidMount() {}
 
   ScreenNoAuth = () => {
     return <Container></Container>;
@@ -68,26 +42,71 @@ class Home extends Component {
               justifyContent: "space-around",
             }}
           >
-            {browse.map((e) => {
-              return (
-                <div key={e.id}>
-                  <img style={{ width: 200 }} src={e.img} alt="" />
-                </div>
-              );
-            })}
+            {this.props.geners !== undefined
+              ? this.props.geners.items.map((e) => {
+                  return (
+                    <div key={e.id}>
+                      <img style={{ width: 200 }} src={e.icons[0].url} alt="" />
+                    </div>
+                  );
+                })
+              : ""}
           </div>
         </div>
         <div>
           <Title>{"NEW RELEASES"}</Title>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-around",
+            }}
+          >
+            {this.props.release !== undefined
+              ? this.props.release.items.map((e) => {
+                  return (
+                    <div key={e.id}>
+                      <img
+                        style={{ width: 200 }}
+                        src={e.images[1].url}
+                        alt=""
+                      />
+                    </div>
+                  );
+                })
+              : ""}
+          </div>
         </div>
         <div>
           <Title>{"FEATURED"}</Title>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-around",
+            }}
+          >
+            {this.props.feature !== undefined
+              ? this.props.feature.items.map((e) => {
+                  // console.log(e);
+                  return (
+                    <div key={e.id}>
+                      <img
+                        style={{ width: 200 }}
+                        src={e.images[0].url}
+                        alt=""
+                      />
+                    </div>
+                  );
+                })
+              : ""}
+          </div>
         </div>
       </ContainerAuth>
     );
   };
 
   render() {
+    // console.log(this.props.geners !== undefined ? this.props.geners.items : "");
+
     return this.props.token ? this.ScreenAuth() : this.ScreenNoAuth();
   }
 }
@@ -95,6 +114,9 @@ class Home extends Component {
 const mapStateToProps = (state) => {
   return {
     token: state.auth.access_token,
+    geners: state.browse.gener.categories,
+    feature: state.browse.feature.playlists,
+    release: state.browse.release.albums,
   };
 };
 

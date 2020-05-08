@@ -1,36 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import _ from "lodash";
 
 import { Redirect } from "react-router-dom";
 import { Container, SongList, InputSearch } from "./styles";
 import { isSearching } from "../../store/action/search";
-
-const artists = [
-  {
-    followers: {
-      total: 34317023,
-    },
-    genres: ["pop"],
-    href: "https://api.spotify.com/v1/artists/1uNFoZAHBGtllmzznpCI3s",
-    id: "1uNFoZAHBGtllmzznpCI3s",
-    name: "Justin Bieber1",
-    popularity: 95,
-    type: "artist",
-    uri: "spotify:artist:1uNFoZAHBGtllmzznpCI3s",
-  },
-  {
-    followers: {
-      total: 34317023,
-    },
-    genres: ["pop"],
-    href: "https://api.spotify.com/v1/artists/1uNFoZAHBGtllmzznpCI3s",
-    id: "1uNFoZAHBGtllmzznpCI3s",
-    name: "Justin Bieber2",
-    popularity: 95,
-    type: "artist",
-    uri: "spotify:artist:1uNFoZAHBGtllmzznpCI3s",
-  },
-];
 
 class Search extends Component {
   constructor(props) {
@@ -38,14 +12,20 @@ class Search extends Component {
     this.state = {
       searchText: "",
     };
+    this.textInput = React.createRef();
   }
 
   onChange = (e) => {
-    //window.location.pathname
     this.setState({
       searchText: e.target.value,
     });
   };
+  // let str = e.target.value;
+  // _.debounce(() => this.props.relay.setVariables({ query: str }), 500);
+  // onChange = _.debounce((e) => {
+  //   let value = e.target.value;
+  //   this.setState({ searchText: value });
+  // }, 1000);
 
   onSubmit = (e) => {
     if (e.keyCode === 13) {
@@ -63,6 +43,7 @@ class Search extends Component {
     return (
       <Container>
         <InputSearch
+          ref={this.textInput}
           placeholder="Search"
           name="search"
           value={this.state.searchText}
@@ -70,14 +51,17 @@ class Search extends Component {
           onKeyDown={this.onSubmit}
         />
         <SongList>
-          {artists.map((a, i) => {
-            return (
-              <div key={i} style={{ display: "flex", margin: 10 }}>
-                <h1 style={{ paddingRight: 200 }}>{a.name}</h1>
-                <h2>{`${a.followers.total} follower`}</h2>
-              </div>
-            );
-          })}
+          {this.props.songs !== undefined &&
+          Object.keys(this.props.songs).length !== 0
+            ? this.props.songs.artists.items.map((a, i) => {
+                return (
+                  <div key={i} style={{ display: "flex", margin: 10 }}>
+                    <h1 style={{ paddingRight: 200 }}>{a.name}</h1>
+                    <h2>{`${a.followers.total} follower`}</h2>
+                  </div>
+                );
+              })
+            : "Nhap de tim kiem"}
         </SongList>
       </Container>
     );
@@ -85,6 +69,7 @@ class Search extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
     token: state.auth.access_token,
     songs: state.search.songResult,
