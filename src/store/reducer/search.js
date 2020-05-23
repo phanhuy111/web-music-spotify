@@ -7,7 +7,6 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case "SEARCH_SUCCESS":
-      // console.log(action.payload);
       return {
         ...state,
         songResult: action.payload,

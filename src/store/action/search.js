@@ -10,7 +10,6 @@ export const isSearching = (value, token) => {
 };
 
 export const searchSuccess = (payload) => {
-  // console.log(payload);
   return {
     type: "SEARCH_SUCCESS",
     payload,

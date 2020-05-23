@@ -101,7 +101,6 @@ class Songs extends Component {
           {this.props.songs.items !== undefined &&
           this.props.songs.items.length !== 0
             ? this.props.songs.items.map((song, index) => {
-                // console.log(song);
                 return (
                   <div
                     style={{ display: "inline-flex", margin: 10 }}

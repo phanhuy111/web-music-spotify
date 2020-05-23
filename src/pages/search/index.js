@@ -69,7 +69,6 @@ class Search extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     token: state.auth.access_token,
     songs: state.search.songResult,

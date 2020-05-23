@@ -23,7 +23,6 @@ export const getSongsFailure = (payload) => {
 };
 
 export const addTrack = (token, uri, id) => {
-  console.log(token);
   return {
     type: "ADD_TRACK",
     token,
@@ -56,7 +55,6 @@ export function* getSongs(action) {
 }
 
 export function* addTrackPlaylist(action) {
-  console.log("aciton", action.token);
   try {
     const response = yield apiSpotify.addTrack(
       action.token,

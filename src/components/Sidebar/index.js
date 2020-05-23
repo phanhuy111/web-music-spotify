@@ -25,8 +25,6 @@ class Sidebar extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    // console.log('before',prevProps)
-    // console.log('after', this.props)
     if (prevProps.token === this.props.token) {
       if (prevProps.id !== this.props.id) {
         this.props.dispatch(getPlaylist(this.props.token, this.props.id));
@@ -129,7 +127,6 @@ class Sidebar extends Component {
             this.props.playlists.items.length !== 0 &&
             this.props.token
               ? this.props.playlists.items.map((playlist) => {
-                  // console.log("object", playlist);
                   return (
                     <li key={playlist.id}>
                       <span onClick={() => this.getTrackTop(playlist.id)}>

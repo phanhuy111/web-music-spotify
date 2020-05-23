@@ -29,7 +29,6 @@ export default {
     return apiCors.post(`/users/${id}/playlists`, { ...playlist }, { headers });
   },
   addTrack(accessToken, uri, id) {
-    // console.log(accessToken);
     headers.Authorization = `Bearer ${accessToken}`;
     return apiCors.post(`/playlists/${id}/tracks?uris=${uri}`, {}, { headers });
   },
@@ -65,7 +64,7 @@ export default {
     headers.Authorition = `Bearer ${accessToken}`;
     return apiCors.get(`/me/player/recently-played`, { headers });
   },
-  // search --> not work
+  // search --> it works
   searchFeature(TextSearch, accessToken) {
     headers.Authorition = `Bearer ${accessToken}`;
     return apiCors.get(

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { login, logout } from "~/store/action/auth";
+import { removeLocal, setLocal } from "~/utils/auth";
 
 import { Container, User, ButtonSpan, Text } from "./styles";
 import queryString from "query-string";
@@ -14,6 +15,7 @@ class Header extends Component {
   componentDidMount() {
     let access_token = queryString.parse(window.location.search).access_token;
     if (access_token) window.localStorage.setItem("access_token", access_token);
+    // if (access_token) setLocal("access_token", access_token);
     this.props.dispatch(login(access_token));
   }
 
@@ -23,6 +25,7 @@ class Header extends Component {
 
   isLogout = () => {
     window.localStorage.removeItem("access_token");
+    // removeLocal("access_token")
     this.props.dispatch(logout());
   };
 

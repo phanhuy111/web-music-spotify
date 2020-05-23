@@ -134,7 +134,6 @@ class Player extends Component {
   };
 
   resumeSong = () => {
-    // console.log("resumesong");
     this.props.dispatch(resumeSong());
   };
 
@@ -158,7 +157,6 @@ class Player extends Component {
   };
 
   render() {
-    // console.log(this.props);
     const { token, indexSong } = this.props;
     const time = Math.ceil((this.state.timeElapsed / 30) * 100);
     return (

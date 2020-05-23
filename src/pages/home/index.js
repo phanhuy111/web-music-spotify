@@ -86,7 +86,6 @@ class Home extends Component {
           >
             {this.props.feature !== undefined
               ? this.props.feature.items.map((e) => {
-                  // console.log(e);
                   return (
                     <div key={e.id}>
                       <img
@@ -105,8 +104,6 @@ class Home extends Component {
   };
 
   render() {
-    // console.log(this.props.geners !== undefined ? this.props.geners.items : "");
-
     return this.props.token ? this.ScreenAuth() : this.ScreenNoAuth();
   }
 }
