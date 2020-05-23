@@ -1,8 +1,5 @@
 import styled from "styled-components";
 
-// import { Spinner } from "../../components/Loading/styles";
-// import { Link } from "react-router-dom";
-
 export const Container = styled.div`
   flex: 1;
   margin-top: 60px;

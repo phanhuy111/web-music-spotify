@@ -1,22 +1,21 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
-// import { Creators as ErrorActions } from '../../store/reducer/error';
+import { connect } from "react-redux";
 
-import CloseIcon from '../../assets/images/clock.svg';
+import CloseIcon from "~/assets/images/clock.svg";
 
-import { Container } from './styles';
+import { Container } from "./styles";
 
-const ErrorBox = ({ error: { message, visible }, hideError }) => visible && (
+const ErrorBox = ({ error: { message, visible }, hideError }) =>
+  visible && (
     <Container>
       <p>{message}</p>
       <button type="button" onClick={hideError}>
         <img src={CloseIcon} alt="Fechar" />
       </button>
     </Container>
-);
+  );
 
 ErrorBox.propTypes = {
   hideError: PropTypes.func.isRequired,
@@ -26,13 +25,13 @@ ErrorBox.propTypes = {
   }).isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   // error: state.error,
 });
 
 // const mapDispatchToProps = dispatch => bindActionCreators(ErrorActions, dispatch);
 
 export default connect(
-  mapStateToProps,
+  mapStateToProps
   // mapDispatchToProps,
 )(ErrorBox);

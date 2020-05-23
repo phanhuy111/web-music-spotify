@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Spinner } from "../../components/Loading/styles";
+import { Spinner } from "~/components/Loading/styles";
 import { Link } from "react-router-dom";
 
 export const Container = styled.div`
@@ -8,7 +8,7 @@ export const Container = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  background-image: url('https://c.stocksy.com/a/h99200/z9/511853.jpg');
+  background-image: url("https://c.stocksy.com/a/h99200/z9/511853.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -20,12 +20,9 @@ export const ContainerAuth = styled.div`
   flex: 1;
 `;
 
-
 export const Title = styled.h1`
   font-size: 20px;
-  margin-bottom: 10px
-
-  ${Spinner} {
+  margin-bottom: 10px ${Spinner} {
     height: 24px;
   }
 `;
@@ -34,7 +31,6 @@ export const List = styled.div`
   margin-top: 20px;
   display: flex;
 `;
-
 
 export const Playlist = styled(Link)`
   display: flex;

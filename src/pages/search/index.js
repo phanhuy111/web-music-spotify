@@ -4,7 +4,7 @@ import _ from "lodash";
 
 import { Redirect } from "react-router-dom";
 import { Container, SongList, InputSearch } from "./styles";
-import { isSearching } from "../../store/action/search";
+import { isSearching } from "~/store/action/search";
 
 class Search extends Component {
   constructor(props) {

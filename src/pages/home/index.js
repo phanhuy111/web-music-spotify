@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import { connect } from "react-redux";
-import { getGener, getFeature, getRelease } from "../../store/action/browse";
+import { getGener, getFeature, getRelease } from "~/store/action/browse";
 
 import { Container, ContainerAuth, Title } from "./styles";
 

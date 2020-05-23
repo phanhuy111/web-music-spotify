@@ -6,13 +6,12 @@ import { Container, NewPlayList, Nav, Modal } from "./styles";
 import Popup from "reactjs-popup";
 
 import Loading from "../Loading";
-import AddPlaylistIcon from "../../assets/images/add_playlist.svg";
-
+import AddPlaylistIcon from "~/assets/images/add_playlist.svg";
 import {
   getPlaylist,
   getPlaylistTrack,
   createPlaylist,
-} from "../../store/action/playlists";
+} from "~/store/action/playlists";
 
 class Sidebar extends Component {
   constructor(props) {

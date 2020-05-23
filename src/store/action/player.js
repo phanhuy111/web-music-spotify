@@ -1,5 +1,4 @@
 import { fork } from "redux-saga/effects";
-// import apiSpotify from '../../services/apiSpotify'
 
 export const updateVolume = (volume) => {
   return {

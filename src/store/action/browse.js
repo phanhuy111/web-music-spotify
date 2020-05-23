@@ -1,5 +1,5 @@
 import { put, takeEvery, fork } from "redux-saga/effects";
-import apiSpotify from "../../services/apiSpotify";
+import apiSpotify from "~/services/apiSpotify";
 
 export const getGener = (token) => {
   return {

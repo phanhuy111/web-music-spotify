@@ -1,13 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getSong } from "../../store/action/songs";
-import {
-  playSong,
-  getSongChoosen,
-  changeSource,
-} from "../../store/action/player";
-import { addTrack } from "../../store/action/songs";
-import Plus from "../../assets/images/plus.svg";
+import { getSong } from "~/store/action/songs";
+import { playSong, getSongChoosen, changeSource } from "~/store/action/player";
+import { addTrack } from "~/store/action/songs";
+import Plus from "~/assets/images/plus.svg";
 import Popup from "reactjs-popup";
 import { Redirect } from "react-router-dom";
 import { Container, SongList, Playlist } from "./styles";

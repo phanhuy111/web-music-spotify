@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getAlbum, getAlbumTrack } from "../../store/action/albums";
+import { getAlbum, getAlbumTrack } from "~/store/action/albums";
 import { connect } from "react-redux";
 import { Container } from "./styles";
 import { Redirect } from "react-router-dom";
